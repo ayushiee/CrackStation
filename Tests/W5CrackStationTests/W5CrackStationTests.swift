@@ -1,5 +1,5 @@
 import XCTest
-@testable import W5CrackStation
+import W5CrackStation
 
 final class W5CrackStationTests: XCTestCase {
 
@@ -9,7 +9,7 @@ final class W5CrackStationTests: XCTestCase {
         let expectedAns = "y"
         
         let crackStation = W5CrackStation()
-        let response = try crackStation.decryptPassword(from: mockInput)
+        let response = crackStation.crack(from: mockInput)
         
         XCTAssertNotNil(response)
         XCTAssert(response == expectedAns)
@@ -21,7 +21,7 @@ final class W5CrackStationTests: XCTestCase {
         let expectedAns = "y"
         
         let crackStation = W5CrackStation()
-        let response = try crackStation.decryptPassword(from: mockInput)
+        let response = crackStation.crack(from: mockInput)
         
         XCTAssertNotNil(response)
         XCTAssertFalse(response == expectedAns)

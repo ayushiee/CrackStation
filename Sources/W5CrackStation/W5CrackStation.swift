@@ -39,8 +39,8 @@ public struct W5CrackStation {
     }
     
     /// Decrypt the passed hash to corresponding str
-    func decryptPassword(from input: String) throws -> String?{
+    public func crack(from password: String) -> String?{
         let hash = generateHashDict()
-        return String(hash[input] ?? "Incorrect response")
+        return String(hash[password] ?? "Incorrect response")
     }
 }
