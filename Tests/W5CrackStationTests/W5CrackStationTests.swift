@@ -24,6 +24,7 @@ final class W5CrackStationTests: XCTestCase {
         let response = crackStation.crack(from: mockInput)
         
         XCTAssertNotNil(response)
+        XCTAssert(response == "It cannot be cracked right now!")
         XCTAssertFalse(response == expectedAns)
     }
 }
