@@ -30,11 +30,10 @@ public struct W5CrackStation {
             hashDict[encryptUsingSha1(from: char)] = char
         }
         
-        for value in UnicodeScalar("0").value...UnicodeScalar("1").value {
+        for value in UnicodeScalar("0").value...UnicodeScalar("9").value {
             let char = String(UnicodeScalar(value)!)
             hashDict[encryptUsingSha1(from: char)] = char
         }
-        
         return hashDict
     }
     
