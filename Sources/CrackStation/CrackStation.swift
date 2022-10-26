@@ -2,7 +2,7 @@ import Foundation
 import CryptoKit
 
 @available(macOS 10.15, *)
-public struct W5CrackStation {
+public struct CrackStation {
     public init() {
     }
     
