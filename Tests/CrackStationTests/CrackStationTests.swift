@@ -9,7 +9,7 @@ final class CrackStationTests: XCTestCase {
         let expectedAns = "y"
         
         let crackStation = CrackStation()
-        let response = crackStation.crack(from: mockInput)
+        let response = crackStation.decrypt(shaHash: mockInput)
         
         XCTAssertNotNil(response)
         XCTAssert(response == expectedAns)
@@ -21,10 +21,18 @@ final class CrackStationTests: XCTestCase {
         let expectedAns = "y"
         
         let crackStation = CrackStation()
-        let response = crackStation.crack(from: mockInput)
+        let response = crackStation.decrypt(shaHash: mockInput)
         
-        XCTAssertNotNil(response)
-        XCTAssert(response == "It cannot be cracked right now!")
+        XCTAssertNil(response)
         XCTAssertFalse(response == expectedAns)
+    }
+    
+    func testIsEmptyString() throws {
+        let mockInput = ""
+        
+        let crackStation = CrackStation()
+        let response = crackStation.decrypt(shaHash: mockInput)
+        
+        XCTAssertNil(response)
     }
 }

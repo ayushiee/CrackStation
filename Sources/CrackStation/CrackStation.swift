@@ -2,7 +2,7 @@ import Foundation
 import CryptoKit
 
 @available(macOS 10.15, *)
-public struct CrackStation {
+public struct CrackStation: Decrypter {
     public init() {
     }
     
@@ -38,8 +38,8 @@ public struct CrackStation {
     }
     
     /// Decrypt the passed hash to corresponding alphabet string
-    public func crack(from password: String) -> String?{
+    public func decrypt(shaHash: String) -> String?{
         let hash = generateHashDict()
-        return String(hash[password] ?? "It cannot be cracked right now!")
+        return hash[shaHash]
     }
 }
