@@ -6,6 +6,11 @@ This is a Crack Station Implementation, built as part of coursework for CS 561. 
 **v1**: It decrypts any input of length one encoded with SHA1 hash function. 
 
 ### Public API
+```
+func decrypt(shaHash: String) -> String? {
+    //TODO: implement
+    }
+```
 
 
 ### Version
