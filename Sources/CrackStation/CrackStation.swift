@@ -7,7 +7,10 @@ enum Hash {
 
 @available(macOS 10.15, *)
 public struct CrackStation: Decrypter {
+    var hashDict: [String: String] = [:]
+    
     public init() {
+            hashDict = generateHashDict()
     }
     
     /// Input: string, hashing algorithm
@@ -63,7 +66,6 @@ public struct CrackStation: Decrypter {
     
     /// Decrypt the passed hash to corresponding alphabet string
     public func decrypt(shaHash: String) -> String?{
-        let hash = generateHashDict()
-        return hash[shaHash]
+        return hashDict[shaHash]
     }
 }
