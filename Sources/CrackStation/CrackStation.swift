@@ -6,13 +6,30 @@ enum Hash {
 }
 
 @available(macOS 10.15, *)
-public struct CrackStation: Decrypter {
+public class CrackStation: Decrypter {
     var hashDict: [String: String] = [:]
     
-    public init() {
-            hashDict = generateHashDict()
+    required public init() {
+        do {
+            hashDict = try loadDictionaryFromDisk()
+        } catch {
+            print("Error: ", error)
+        }
     }
     
+    public func loadDictionaryFromDisk() throws -> [String : String] {
+        guard let path = Bundle.module.url(forResource: "hashDict", withExtension: "json") else { return [:] }
+
+        let data = try Data(contentsOf: path)
+        let jsonResult = try JSONSerialization.jsonObject(with: data)
+        
+        if let lookupTable: Dictionary = jsonResult as? Dictionary<String, String> {
+            return lookupTable
+        } else {
+            return [:]
+        }
+    }
+
     /// Input: string, hashing algorithm
     /// Output: corresponding hash
     func encrypt(from input: String, hash: Hash) -> String {

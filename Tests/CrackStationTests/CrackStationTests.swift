@@ -2,7 +2,7 @@ import XCTest
 import CrackStation
 
 final class CrackStationTests: XCTestCase {
-
+    
     /// Test to check SHA1 hash string exists and matches a single decrypted alphabet.
     func testIsSHA1StringLength1Decryptable() throws {
         let mockInput: String = "95cb0bfd2977c761298d9624e4b4d4c72a39974a"
