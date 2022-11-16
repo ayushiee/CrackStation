@@ -5,7 +5,6 @@ enum Hash {
     case SHA1, SHA256
 }
 
-@available(macOS 10.15, *)
 public class CrackStation: Decrypter {
     var hashDict: [String: String] = [:]
     
