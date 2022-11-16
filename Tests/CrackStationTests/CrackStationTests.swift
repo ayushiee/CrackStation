@@ -51,6 +51,31 @@ final class CrackStationTests: XCTestCase {
         XCTAssertEqual(response, expectedAns)
     }
     
+    /// Test to check SHA1 hash string exists and matches a  decrypted string of length  3.
+    func testIsSHA1StringLength3Decryptable() throws {
+        let mockInput: String = "afc97ea131fd7e2695a98ef34013608f97f34e1d"
+        let expectedAns: String = "999"
+        
+        let crackStation = CrackStation()
+        let response = crackStation.decrypt(shaHash: mockInput)
+        
+        XCTAssertNotNil(response)
+        XCTAssert(response == expectedAns)
+    }
+    
+    /// Test to check SHA2 hash string exists and matches a  decrypted string of length  3.
+    func testIsSHA2StringLength3Decryptable() throws {
+        let mockInput: String = "10416c41df3e06f92f7ac87da6ef4830f01990c7f95b9112e032ebc59e085a48"
+        let expectedAns: String = "99S"
+        
+        let crackStation = CrackStation()
+        let response = crackStation.decrypt(shaHash: mockInput)
+        
+        XCTAssertNotNil(response)
+        XCTAssertEqual(response, expectedAns)
+    }
+    
+    
     /// Test to check if package fails when incorrect  SHA1 hash is entered for a given string of length 1
     func testIsSHA1StringOfLength1NotDecryptable() throws {
         let mockInput: String = "95cb0bfd2977c761298d9624e4b4d4c72a39974b"
@@ -99,6 +124,31 @@ final class CrackStationTests: XCTestCase {
         XCTAssertFalse(response == expectedAns)
     }
     
+    /// Test to check if package fails when incorrect SHA1 hash is entered for a given string of length 3
+    func testIsSHA1StringOfLength3NotDecryptable() throws {
+        let mockInput: String = "c081b1ac6953cf87b2a50661edf3eb091cd6d9dbd"
+        let expectedAns: String = "9yE"
+        
+        let crackStation = CrackStation()
+        let response = crackStation.decrypt(shaHash: mockInput)
+        
+        XCTAssertNil(response)
+        XCTAssertFalse(response == expectedAns)
+    }
+    
+    /// Test to check if package fails when incorrect SHA2 hash is entered for a given string of length 3
+    func testIsSHA2StringOfLength3NotDecryptable() throws {
+        let mockInput: String = "36baf8eeb4af8614ef4a50e40f2f1d57458b8f5d7897ea9d1c828176503b36fw"
+        let expectedAns: String = "99a"
+        
+        let crackStation = CrackStation()
+        let response = crackStation.decrypt(shaHash: mockInput)
+        
+        XCTAssertNil(response)
+        XCTAssertFalse(response == expectedAns)
+    }
+    
+    
     /// Test to check that package response is "nil" when empty string is entered
     func testIsEmptyString() throws {
         let mockInput: String = ""
@@ -109,9 +159,9 @@ final class CrackStationTests: XCTestCase {
         XCTAssertNil(response)
     }
     
-    /// Test to check that package response is "nil" when string is more than 2
+    /// Test to check that package response is "nil" when string is more than 3
     func testIsNotValidForLongerStrings() throws {
-        let mockInput: String = "abc"
+        let mockInput: String = "abcd"
         
         let crackStation = CrackStation()
         let response = crackStation.decrypt(shaHash: mockInput)
