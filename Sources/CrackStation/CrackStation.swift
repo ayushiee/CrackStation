@@ -30,6 +30,8 @@ public class CrackStation: Decrypter {
     }
 
     /// Decrypt the passed hash to corresponding alphabet string
+    /// Input: encrypted hash string
+    /// Returns: password string or nil, if not found
     public func decrypt(shaHash: String) -> String?{
         return hashDict[shaHash]
     }
