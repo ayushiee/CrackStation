@@ -9,7 +9,7 @@ def generateHashes():
   hashDict = {}
 
   for strLength in range(1, 4):
-    chars = ascii_letters + digits 
+    chars = ascii_letters + digits + '?' + '!'
     for item in itertools.product(chars, repeat=strLength):
       newStr = "".join(item)
       sha1Hash = hashlib.sha1(str(newStr).encode()).hexdigest()
