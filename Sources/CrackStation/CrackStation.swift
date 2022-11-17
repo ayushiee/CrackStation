@@ -1,10 +1,6 @@
 import Foundation
 import CryptoKit
 
-enum Hash {
-    case SHA1, SHA256
-}
-
 public class CrackStation: Decrypter {
     private var hashDict: [String: String] = [:]
     
@@ -19,6 +15,7 @@ public class CrackStation: Decrypter {
         }
     }
     
+    /// Loading hash dictionary from disk
     public func loadDictionaryFromDisk() throws -> [String : String] {
         guard let path = Bundle.module.url(forResource: "hashDict", withExtension: "json") else { return [:] }
 
