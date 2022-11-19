@@ -2,29 +2,19 @@ import Foundation
 import CryptoKit
 
 public class CrackStation: Decrypter {
-    private var hashDict: [String: String] = [:]
+    static private var hashDict: [String: String] = loadDictionaryFromDisk()
     
-    required public init() {
-        do {
-            hashDict = try loadDictionaryFromDisk()
-            if hashDict.isEmpty {
-                print("Lookup table dictionary does not exist. Please generate that first!")
-            }
-        } catch {
-            print("Error: ", error)
-        }
-    }
+    required public init() {}
     
     /// Loading hash dictionary from disk
-    public func loadDictionaryFromDisk() throws -> [String : String] {
-        guard let path = Bundle.module.url(forResource: "hashDict", withExtension: "json") else { return [:] }
-
-        let data = try Data(contentsOf: path)
-        let jsonResult = try JSONSerialization.jsonObject(with: data)
-        
-        if let lookupTable: Dictionary = jsonResult as? Dictionary<String, String> {
-            return lookupTable
-        } else {
+    static private func loadDictionaryFromDisk() -> [String:String] {
+        guard let path = Bundle.module.url(forResource: "hashDict", withExtension: "json") else { return [:]}
+        do {
+            let data = try Data(contentsOf: path)
+            let jsonResult = try JSONSerialization.jsonObject(with: data)
+            return jsonResult as? Dictionary<String, String> ?? [:]
+        } catch {
+            print("Error: ", error)
             return [:]
         }
     }
@@ -33,6 +23,6 @@ public class CrackStation: Decrypter {
     /// Input: encrypted hash string
     /// Returns: password string or nil, if not found
     public func decrypt(shaHash: String) -> String?{
-        return hashDict[shaHash]
+        return Self.hashDict[shaHash]
     }
 }
