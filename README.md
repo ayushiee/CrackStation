@@ -3,7 +3,7 @@
 CrackStation decrypts any _unsalted_ input of length one, two, and three, encoded with SHA-1 and SHA-256 hash function. 
 
 ## Overview
----
+
 This is a Crack Station Implementation, built as part of coursework for CS561. The project has gone through the following versions:  
 * **V1**: It decrypts any input of length one encoded with SHA1 hash function. (`git tag 1.0.0`)
 
@@ -14,13 +14,12 @@ This is a Crack Station Implementation, built as part of coursework for CS561. T
 It is currently in its **MVP** stage.
 
 ## Mission Statement
----
+
 CrackStation, originially, is a security awareness project started by [Defuse Security](https://crackstation.net/about-us.htm). Its purpose is to raise awareness about insecure password storage in web applications, and to provide guidance to implementors of user authentication systems.
 
 This library is an attempt to replicate the same at a small level. It is built to understand the concepts behind hashing of plaintext passwords for storage, and the importance of choosing a _non-generic_ password for a system security. 
 
 ## Installation
----
 
 ### Swift Package Manager
 
@@ -30,12 +29,11 @@ Once you have your Swift package set up, add CrackStation to the list of depende
 
 ```
 dependencies: [
-    .package(url: "git@github.com:ayushiee/CrackStation.git", .upToNextMajor(from:"1.1.0"))
+    .package(url: "git@github.com:ayushiee/CrackStation.git", .upToNextMajor(from:"1.2.0"))
 ]
 ```
 
 ## Usage
-----
 
 ### The API
 
@@ -98,5 +96,4 @@ let invalidHash = crackStation.decrypt("60c7577bedfcb6176130615c3efd0c05533a4c73
 ```
 
 ## Author
----
 Ayushi Gupta
