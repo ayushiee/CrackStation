@@ -2,13 +2,13 @@ import XCTest
 import CrackStation
 
 final class CrackStationSHA2Tests: XCTestCase {
+    private let crackStation = CrackStation()
     
     /// Test to check SHA2 hash string exists and matches a single decrypted alphabet.
     func testIs1LengthStringDecryptable() throws {
         let mockInput: String = "4ae81572f06e1b88fd5ced7a1a000945432e83e1551e6f721ee9c00b8cc33260"
         let expectedAnswer: String = "Q"
         
-        let crackStation = CrackStation()
         let decryptedResponse = crackStation.decrypt(shaHash: mockInput)
         
         XCTAssertNotNil(decryptedResponse)
@@ -20,7 +20,6 @@ final class CrackStationSHA2Tests: XCTestCase {
         let mockInput: String = "333999a9bccd994204c9fe52393ccc6d5d4385806c1a783dd13b6aa65b286cb2"
         let expectedAnswer: String = "9J"
         
-        let crackStation = CrackStation()
         let decryptedResponse = crackStation.decrypt(shaHash: mockInput)
         
         XCTAssertNotNil(decryptedResponse)
@@ -32,7 +31,6 @@ final class CrackStationSHA2Tests: XCTestCase {
         let mockInput: String = "10416c41df3e06f92f7ac87da6ef4830f01990c7f95b9112e032ebc59e085a48"
         let expectedAnswer: String = "99S"
         
-        let crackStation = CrackStation()
         let decryptedResponse = crackStation.decrypt(shaHash: mockInput)
         
         XCTAssertNotNil(decryptedResponse)
@@ -47,7 +45,6 @@ final class CrackStationSHA2Tests: XCTestCase {
         let mockInputQuestionMark: String = "8a8de823d5ed3e12746a62ef169bcf372be0ca44f0a1236abc35df05d96928e1"
         let expectedAnswerQuestionMark: String = "?"
         
-        let crackStation = CrackStation()
         let exclamationDecryptedResponse = crackStation.decrypt(shaHash: mockInputExclamation)
         let questionMarkDecryptedResponse = crackStation.decrypt(shaHash: mockInputQuestionMark)
         
@@ -65,7 +62,6 @@ final class CrackStationSHA2Tests: XCTestCase {
         let mockInputQuestionMark: String = "b2b79717f4225259153284e6477c05e2cb9244b5a144ce38102f2222c065a5ad"
         let expectedAnswerQuestionMark: String = "?o"
         
-        let crackStation = CrackStation()
         let exclamationDecryptedResponse = crackStation.decrypt(shaHash: mockInputExclamation)
         let questionMarkDecryptedResponse = crackStation.decrypt(shaHash: mockInputQuestionMark)
         
@@ -83,7 +79,6 @@ final class CrackStationSHA2Tests: XCTestCase {
         let mockInputQuestionMark: String = "8c0feec88847c8f8639f6890058aeb03037ecc7852c5712b5317a56eb5178684"
         let expectedAnswerQuestionMark: String = "?wb"
         
-        let crackStation = CrackStation()
         let exclamationDecryptedResponse = crackStation.decrypt(shaHash: mockInputExclamation)
         let questionMarkDecryptedResponse = crackStation.decrypt(shaHash: mockInputQuestionMark)
         
@@ -98,7 +93,6 @@ final class CrackStationSHA2Tests: XCTestCase {
         let mockInput: String = "4ae81572f06e1b88fd5ced7a1a000945432e83e1551e6f721ee9c00b8cc33261"
         let expectedAnswer: String = "Q"
         
-        let crackStation = CrackStation()
         let decryptedResponse = crackStation.decrypt(shaHash: mockInput)
         
         XCTAssertNil(decryptedResponse)
@@ -110,7 +104,6 @@ final class CrackStationSHA2Tests: XCTestCase {
         let mockInput: String = "3fffd018d2223020be85670d93f565b63df54a9ce3ed2cdf6347a61df016938D"
         let expectedAnswer: String = "4s"
         
-        let crackStation = CrackStation()
         let decryptedResponse = crackStation.decrypt(shaHash: mockInput)
         
         XCTAssertNil(decryptedResponse)
@@ -122,7 +115,6 @@ final class CrackStationSHA2Tests: XCTestCase {
         let mockInput: String = "36baf8eeb4af8614ef4a50e40f2f1d57458b8f5d7897ea9d1c828176503b36fw"
         let expectedAnswer: String = "99a"
         
-        let crackStation = CrackStation()
         let decryptedResponse = crackStation.decrypt(shaHash: mockInput)
         
         XCTAssertNil(decryptedResponse)

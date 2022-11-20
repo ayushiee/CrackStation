@@ -2,12 +2,12 @@ import XCTest
 import CrackStation
 
 final class CrackStationTests: XCTestCase {
+    private let crackStation = CrackStation()
     
     /// Test to check that package response is "nil" when empty string is entered
     func testIsEmptyString() throws {
         let mockInput: String = ""
         
-        let crackStation = CrackStation()
         let decryptedResponse = crackStation.decrypt(shaHash: mockInput)
         
         XCTAssertNil(decryptedResponse)
@@ -17,7 +17,6 @@ final class CrackStationTests: XCTestCase {
     func testIsNotValidForLongerStrings() throws {
         let mockInput: String = "abcd"
         
-        let crackStation = CrackStation()
         let decryptedResponse = crackStation.decrypt(shaHash: mockInput)
         
         XCTAssertNil(decryptedResponse)
@@ -27,7 +26,6 @@ final class CrackStationTests: XCTestCase {
     func testIsNotValidForIncorrectHash() throws {
         let mockInput: String = "3fffd018d2223020be85670d93f565b63df54a9ce3ed2cdf6347a61df016938w"
         
-        let crackStation = CrackStation()
         let decryptedResponse = crackStation.decrypt(shaHash: mockInput)
         
         XCTAssertNil(decryptedResponse)
