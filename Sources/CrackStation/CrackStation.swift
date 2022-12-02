@@ -1,8 +1,7 @@
 import Foundation
-import CryptoKit
 
 public class CrackStation: Decrypter {
-    static private var hashDict: [String: String] = loadDictionaryFromDisk()
+    static private let hashDict: [String: String] = loadDictionaryFromDisk()
     
     required public init() {}
     
