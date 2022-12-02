@@ -9,7 +9,7 @@ This is a Crack Station Implementation, built as part of coursework for CS561. T
 
 * **V2**: It decrypts any input of length one and two, encoded with SHA-1 and SHA-256 hash function. (`git tag 1.1.0`)
 
-* **MVP**: It decrypts any input of length one, two, and three, encoded with SHA-1 and SHA-256 hash function. (`git tag 1.2.0`)
+* **MVP**: It decrypts any input of length one, two, and three, encoded with SHA-1 and SHA-256 hash function. (`git tag 1.2.1`)
 
 It is currently in its **MVP** stage.
 
@@ -29,7 +29,7 @@ Once you have your Swift package set up, add CrackStation to the list of depende
 
 ```
 dependencies: [
-    .package(url: "git@github.com:ayushiee/CrackStation.git", .upToNextMajor(from:"1.2.0"))
+    .package(url: "git@github.com:ayushiee/CrackStation.git", .upToNextMajor(from:"1.2.1"))
 ]
 ```
 
